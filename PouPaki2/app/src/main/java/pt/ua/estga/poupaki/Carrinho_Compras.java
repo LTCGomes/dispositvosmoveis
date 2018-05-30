@@ -36,13 +36,15 @@ public class Carrinho_Compras extends Fragment {
         view = inflater.inflate(R.layout.carrinho_compras,container, false);
 
         try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
+            JSONArray array = new JSONArray(loadJSONFromAsset());
 
             ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
             HashMap<String, String> m_li;
 
-            for (int i = 0; i < obj.length(); i++) {
-                Log.d("Details-->", obj.getString("nome"));
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject obj = array.getJSONObject(i);
+                Log.d("Nome-->", obj.getString("nome"));
+                Log.d("Preço-->", obj.getString("preco"));
                 String formula_value = obj.getString("nome");
                 String url_value = obj.getString("preco");
 
