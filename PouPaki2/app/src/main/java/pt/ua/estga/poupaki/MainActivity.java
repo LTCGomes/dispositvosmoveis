@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.support.v4.app.FragmentActivity;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -82,27 +83,16 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_inicio:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Inicio()).commit();
                 break;
-
             case R.id.nav_produtos:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Produtos()).commit();
                 break;
             case R.id.nav_carrinho:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Carrinho_Compras()).commit();
                 break;
-            case R.id.nav_comparar:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Supermercados()).commit();
-                break;
-
-            case R.id.nav_navegacao:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Navegação()).commit();
-                break;
-
             case R.id.nav_lista:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Lista_Compras()).commit();
                 break;
-            case R.id.nav_manage:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Definicoes()).commit();
-                break;
+
         }
 
         drawer.closeDrawer(GravityCompat.START);

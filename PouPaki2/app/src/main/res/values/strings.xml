@@ -23,4 +23,5 @@
         <item>Jumbo</item>
         <item>Spar</item>
     </string-array>
+    <string name="title_activity_navegacao">Map</string>
 </resources>

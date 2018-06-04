@@ -13,24 +13,36 @@
     tools:layout_editor_absoluteY="25dp">
 
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Produtos"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/titulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="9dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="13dp"
         android:text="@string/encontre_todos_os_produtos_e_adicione_os_ao_seu_carrinho"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:ignore="MissingConstraints" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="@string/pesquisar"
         android:inputType="textPersonName"
@@ -39,62 +51,70 @@
         android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/searchView"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
         tools:ignore="MissingConstraints" />
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="52dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
-        app:layout_constraintEnd_toEndOf="@+id/titulo"
-        app:layout_constraintTop_toTopOf="@+id/titulo" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/search"
+        app:layout_constraintTop_toTopOf="@+id/search" />
 
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:paddingLeft="15sp"
-        android:text="Foram encontrados -- no"
+        android:text="Foram encontrados no "
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/search"
-        app:layout_constraintTop_toBottomOf="@+id/search"
+        app:layout_constraintBaseline_toBaselineOf="@+id/value_supermercado"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/value_supermercado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="13dp"
+        android:layout_marginStart="13dp"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/result"
-        app:layout_constraintTop_toBottomOf="@+id/search" />
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+        app:layout_constraintStart_toEndOf="@+id/result" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="101dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        android:layout_marginBottom="51dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="51dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="31dp"
+        android:layout_marginEnd="24dp"
         android:text="Avançar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:text="Adicionar"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+
 </android.support.constraint.ConstraintLayout>
 

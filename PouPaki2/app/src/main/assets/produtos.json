@@ -1,35 +1,35 @@
 ﻿[	
 	{
 		"nome": " Laranja Nacional",
-		"preco": "0,89 €/kg"
+		"preco": "0.89 €/kg"
 	},
 	{
 		"nome": "Maça Royal Gala",
-		"preco": "0,94 €/kg"
+		"preco": "0.94 €/kg"
 	},
 	{
 		"nome": "Alface Frisada",
-		"preco": " 1,00 €/kg"
+		"preco": "1.00 €/kg"
 	},
 	{
 		"nome": "Banana da Madeira",
-		"preco" : "1,20 €/kg"
+		"preco" : "1.20 €/kg"
 	},
 	{
 		"nome" : "Leite Mimosa",
-		"preco" : "0,77 €/l"
+		"preco" : "0.77 €/l"
 	},
 	{
 		"nome" : " Cereais Chocapic",
-		"preco" : "4,75 €/kg"
+		"preco" : "4.75 €/kg"
 	},
 	{
 		"nome" : "Shampoo H&S",
-		"preco" : "3,50 €/l "
+		"preco" : "3.50 €/l"
 	},
 	{
 		"nome" : " Batatas Fritas Lay's",
-		"preco" : "1,26 €/kg"
+		"preco" : "1.26 €/kg"
 	}
 	
 	

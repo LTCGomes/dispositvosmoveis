@@ -1,7 +1,8 @@
 package pt.ua.estga.poupaki;
 
-
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -42,6 +43,11 @@ public class Inicio extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("supermarket",supermercados.getSelectedItem().toString());
                 produtos.setArguments(bundle);
+
+                SharedPreferences nomePref = PreferenceManager.getDefaultSharedPreferences(getContext());
+                SharedPreferences.Editor editor = nomePref.edit();
+                editor.putString("supermarket", supermercados.getSelectedItem().toString());
+                editor.apply();
 
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, produtos).commit();
 

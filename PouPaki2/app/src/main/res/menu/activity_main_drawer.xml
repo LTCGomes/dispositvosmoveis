@@ -17,23 +17,9 @@
             android:icon="@drawable/ic_shopping_cart"
             android:title="Carrinho de Compras" />
         <item
-            android:id="@+id/nav_comparar"
-            android:icon="@drawable/ic_if_shop"
-            android:title="Comparar Preços" />
-
-        <item
-            android:id="@+id/nav_navegacao"
-            android:icon="@drawable/ic_if_thefreeforty_map_1243687"
-            android:title="Navegação" />
-
-        <item
             android:id="@+id/nav_lista"
             android:icon="@drawable/ic_if_list_118647"
             android:title="Lista de Compras" />
 
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Definições" />
     </group>
 </menu>
