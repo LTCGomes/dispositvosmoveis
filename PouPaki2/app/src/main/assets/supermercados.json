@@ -1,0 +1,32 @@
+﻿[	
+	{
+		"nome": "Continente",
+		"latitude": "40.649782",
+		"longitude" : "-8.614502"
+	},
+	{
+		"nome": "Pingo Doce",
+		"latitude": "40.650479",
+		"longitude" : "-8.620968"
+	},
+	{
+		"nome": "Lidl",
+		"latitude": "40.613405",
+		"longitude" : "-8.655626"
+	},
+	{
+		"nome": "Mini-Preço",
+		"latitude": "40.642840",
+		"longitude" : "-8.647638"
+	},
+	{
+		"nome": "Jumbo",
+		"latitude": "40.627063",
+		"longitude" : "-8.644695"
+	},
+	{
+		"nome": "Spar",
+		"latitude": "40.637399",
+		"longitude" : "-8.650273"
+	}
+]
