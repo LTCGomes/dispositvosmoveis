@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ public class Produtos extends Fragment {
     View view;
     TextView value;
     Button avancar;
+    SearchView pesquisar;
+    AutoCompleteTextView search;
 
     private RecyclerView mRecyclerView;
     private Produtos_adapter mCarrinhoAdapter;
@@ -37,8 +41,19 @@ public class Produtos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.produtos, container, false);
+
+        mCarrinhoList = new ArrayList<>();
+        mRecyclerView = view.findViewById(R.id.recyclerView2);
+
+        mRecyclerView.setHasFixedSize(true);
+        mCarrinhoAdapter = new Produtos_adapter(getContext(), mCarrinhoList);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.setAdapter(mCarrinhoAdapter);
+
         value = (TextView) view.findViewById(R.id.value_supermercado);
         avancar = (Button) view.findViewById(R.id.button);
+        pesquisar = (SearchView) view.findViewById(R.id.searchView);
+        search = (AutoCompleteTextView) view.findViewById(R.id.search);
 
         Bundle bundle = getArguments();
         if (bundle != null)
@@ -54,22 +69,34 @@ public class Produtos extends Fragment {
 
         });
 
-        try {
-            mCarrinhoList = new ArrayList<>();
-            JSONArray array = new JSONArray(loadJSON());
+        pesquisar.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    clear();
 
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject obj = array.getJSONObject(i);
+                    JSONArray array = new JSONArray(loadJSON());
 
-                String nome = obj.getString("nome");
-                String preco = obj.getString("preco");
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject obj = array.getJSONObject(i);
 
-                mCarrinhoList.add(new Class_produtos(nome, preco));
-                buildRecycleView();
+                        String nome = obj.getString("nome");
+                        String preco = obj.getString("preco");
+
+                        if (search.getText() != null) {
+                            if (nome.toString().toLowerCase().contains(search.getText().toString().toLowerCase())) {
+                                mCarrinhoList.add(new Class_produtos(nome, preco));
+                                mCarrinhoAdapter.notifyItemInserted(i);
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        });
+
+
         return view;
 
         //  Toast.makeText(getContext(), bundle.getString("supermarket"), Toast.LENGTH_SHORT).show();
@@ -77,14 +104,12 @@ public class Produtos extends Fragment {
     }
 
 
-    public void buildRecycleView() {
-        mRecyclerView = view.findViewById(R.id.recyclerView2);
-        mRecyclerView.setHasFixedSize(true);
-        mCarrinhoAdapter = new Produtos_adapter(getContext(), mCarrinhoList);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mCarrinhoAdapter);
+    private void clear() {
+        if (!mCarrinhoList.isEmpty()) {
+            mCarrinhoList.clear();
+            mCarrinhoAdapter.notifyDataSetChanged();
+        }
     }
-
 
     public String loadJSON() {
         String json = null;

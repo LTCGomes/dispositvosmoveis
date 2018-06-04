@@ -45,7 +45,7 @@
         android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="@string/pesquisar"
-        android:inputType="textPersonName"
+        android:inputType="textNoSuggestions"
         android:paddingLeft="5sp"
         android:selectAllOnFocus="false"
         android:textColor="@android:color/darker_gray"
